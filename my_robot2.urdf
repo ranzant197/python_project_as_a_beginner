@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot name="simple_robot">
+    <material name="blue">
+        <color rgba="0 1 0 1" />
+    </material>
+    <material name="yellow">
+        <color rgba="1 1 0 1" />
+    </material>
+    <material name="red">
+        <color rgba="1 0 0 1" />
+    </material>
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder length="0.1" radius="0.3" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="blue">
+            </material>
+        </visual>
+    </link>
+
+    <link name="first_link">
+        <visual>
+            <geometry>
+                <cylinder length="0.5" radius="0.08" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="yellow">
+            </material>
+        </visual>
+    </link>
+
+    <link name="second_link">
+        <visual>
+            <geometry>
+                <box size="0.2 0.7 0.1" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="red">
+            </material>
+        </visual>
+    </link>
+
+    <joint name="base_first_lik_joint" type="revolute">
+        <parent link="base_link" />
+        <child link="first_link" />
+        <origin xyz="0 0 0.3" rpy="0 0 0" />
+        <axis xyz="0 0 1" rpy="0 0 0" />
+        <limit effort="300" velocity="2.0" lower="-1.2" upper="1.2" />
+    </joint>
+
+    <joint name="first_second_link_joint" type="prismatic">
+        <parent link="first_link" />
+        <child link="second_link" />
+        <origin xyz="0 0 0.25" rpy="0 0 0" />
+        <axis xyz="0 1 0" rpy="0 0 0" />
+        <limit effort="300" velocity="2.0" lower="-2" upper="2" />
+    </joint>
+</robot>
