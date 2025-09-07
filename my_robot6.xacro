@@ -14,7 +14,7 @@
 
     <xacro:include filename="/home/ranzant197/material_color.xacro" />
 
-    <link name="base_link" type="fixed">
+    <link name="base_link">
         <visual>
             <geometry>
                 <box size="${box_size} ${box_size} ${box_size}" />
